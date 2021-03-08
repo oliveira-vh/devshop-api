@@ -13,10 +13,19 @@ input CategoryCreateInput {
   slug: String!
 }
 
+input CategoryUpdateInput {
+  id: String!
+  name: String!
+  slug: String!
+}
+
 type Mutation {
   createCategory(input: CategoryCreateInput!): Category!
+  updateCategory(input: CategoryUpdateInput!): Category!
+  deleteCategory(id: String!): Boolean!
 }
 
 type Query {
   getAllCategories: [Category!]!
+  getCategoryById(id: String!): Category!
 }
